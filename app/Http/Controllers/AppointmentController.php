@@ -127,7 +127,8 @@ class AppointmentController extends Controller
         ]);
 
         $results = $service->freebusy->query($body);
-        $busy = $results->getCalendars()['primary']['busy'];
+        $busy = $results->getCalendars();
+        dd($busy);
 
         return count($busy) > 0;
     }
